@@ -1,0 +1,6 @@
+framework module HHSwitch {
+  umbrella header "HHSwitch-umbrella.h"
+
+  export *
+  module * { export * }
+}

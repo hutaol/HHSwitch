@@ -1,0 +1,16 @@
+PODS:
+  - HHSwitch (0.1.0)
+
+DEPENDENCIES:
+  - HHSwitch (from `../`)
+
+EXTERNAL SOURCES:
+  HHSwitch:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HHSwitch: aee8a5bc943718d4823f25c1a818fbb577ea4efd
+
+PODFILE CHECKSUM: 67125deadd0ea725c517f665e81462158d88ada7
+
+COCOAPODS: 1.11.3

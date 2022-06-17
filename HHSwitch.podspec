@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HHSwitch'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of HHSwitch.'
+  s.version          = '0.2.0'
+  s.summary          = '自定义Switch控件'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+自定义Switch控件
                        DESC
 
   s.homepage         = 'https://github.com/hutaol/HHSwitch'

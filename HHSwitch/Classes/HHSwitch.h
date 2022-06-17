@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL on;
 
+/// 默认 YES
+@property (nonatomic, assign) BOOL enabled;
+
 @end
 
 @interface HHSwitchAnimationManager : NSObject

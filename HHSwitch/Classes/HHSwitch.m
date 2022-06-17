@@ -28,6 +28,8 @@ NSString * const BackgroundColorAnimationKey = @"BackgroundColorAnimationKey";
 
 @property (nonatomic, strong) HHSwitchAnimationManager *animationManager;
 
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
+
 @end
 
 @implementation HHSwitch
@@ -88,7 +90,7 @@ NSString * const BackgroundColorAnimationKey = @"BackgroundColorAnimationKey";
     self.circleLayer.fillColor = _circleColor.CGColor;
     self.layerWidth = self.circleLayer.frame.size.width;
 
-    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSwitch)]];
+    self.enabled = YES;
 
 }
 
@@ -152,6 +154,18 @@ NSString * const BackgroundColorAnimationKey = @"BackgroundColorAnimationKey";
     }
 }
 
+- (void)setEnabled:(BOOL)enabled {
+    if (_enabled == enabled) {
+        return;
+    }
+    _enabled = enabled;
+    if (enabled) {
+        [self addGestureRecognizer:self.tapGesture];
+    } else {
+        [self removeGestureRecognizer:self.tapGesture];
+    }
+}
+
 #pragma mark GestureRecognizer
 
 - (void)handleTapSwitch {
@@ -197,6 +211,13 @@ NSString * const BackgroundColorAnimationKey = @"BackgroundColorAnimationKey";
     return _circleLayer;
 }
 
+- (UITapGestureRecognizer *)tapGesture {
+    if (!_tapGesture) {
+        _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSwitch)];
+    }
+    return _tapGesture;
+}
+
 #pragma mark AnimationDelegate
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
@@ -227,6 +248,7 @@ NSString * const BackgroundColorAnimationKey = @"BackgroundColorAnimationKey";
 }
 
 - (void)dealloc {
+    _tapGesture = nil;
     self.delegate = nil;
 }
 
